@@ -8,13 +8,13 @@ float make_bigger = 100;//<-----For printing, set this at 500
 void setup() 
 {
   size(round(print_width * make_bigger), round(print_height * make_bigger));
-  background(0);
+  background(255);//<---------------------------------------------------------B/W color
   noFill();
   //beginRecord(PDF, "wetSharp.pdf");
-  stroke(255);
+  stroke(0);//<---------------------------------------------------------B/W color
   strokeWeight(.1);
 
-  for (int i=0; i<height+200; i+=3) 
+  for (int i=0; i<height+200; i+=7)//<------------density(4)
   {
     beginShape();
     curveVertex(0, i);
@@ -31,13 +31,13 @@ void setup()
 
 
   strokeWeight(.1);
-  stroke(0);
+  stroke(255);//<---------------------------------------------------------B/W color
   pushMatrix();
   translate(width/2, 0);
-  for (int k=height/4; k<height; k+=random(2))
+  for (int k=height/4; k<height; k+=random(4))//<------------density(3)
   {
     float xDistance = random(3, width/4);
-    float yDistance = height/4;
+    float yDistance = height/3;
     float direction = random(-1, 1);
 
     beginShape();
@@ -51,7 +51,7 @@ void setup()
     endShape();
   }
   popMatrix();
-  save("wetSharp"+"_d"+day()+"h"+hour()+"m"+minute()+"s"+second()+".tif");
+  //save("wetSharp"+"_d"+day()+"h"+hour()+"m"+minute()+"s"+second()+".tif");
   //endRecord();
 }
 
